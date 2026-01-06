@@ -17,6 +17,10 @@ body {
   color: rgb(195, 7, 7) !important;
 }
 
+.coin-arrow {
+  transform: rotate(90deg);
+}
+
 .up {
   color: #1caf08 !important;
   transform: rotate(0deg);
@@ -27,4 +31,12 @@ body {
   color: rgb(195, 7, 7) !important;
   transform: rotate(180deg);
   transition: all 0.3s ease-in-out;
+}
+
+.none {
+  visibility: hidden;
+}
+
+.animation-none {
+  animation: none !important;
 }
