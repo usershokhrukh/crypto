@@ -55,7 +55,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  background-color: rgb(23, 30, 48);
+  background-color: rgb(25, 26, 28);
   padding: 10px;
   flex-grow: 1;
   max-width: 700px;
@@ -70,7 +70,7 @@ body {
   align-items: start;
   padding: 10px;
   flex-grow: 2;
-  background-color: rgb(23, 30, 48);
+  background-color: rgb(25, 26, 28);
   max-width: 300px;
   border-radius: 5px;
   gap: 20px;
@@ -131,7 +131,7 @@ body {
   font-size: 14px;
   font-family: sans-serif;
   border-radius: 3px;
-  background-color: rgb(9, 16, 40);
+  background-color: rgb(25, 26, 28);
   color: rgb(210, 210, 210);
   padding: 10px 5px;
   outline: none;
