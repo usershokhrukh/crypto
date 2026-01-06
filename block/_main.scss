@@ -1,15 +1,105 @@
 .real-time {
   @include display();
-  gap: 10%;
+  gap: 30px;
   justify-content: start;
   align-items: start;
-
+  flex-wrap: wrap;
   &__main {
+    position: relative;
     background-color: rgb(17, 17, 17);
     min-height: 100vh;
     flex-grow: 1;
     padding: 10% 5%;
   }
+
+  &__line {
+    position: absolute;
+    width: 30vw;
+    top: 0px;
+    left: 0vw;
+
+    border: 1px solid rgba(85, 155, 240, 0.545);
+    animation-name: line-load;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes line-load {
+    0% {
+      width: 30vw;
+      left: 0px;
+    }
+    25% {
+      width: 100vw;
+      left: 0px;
+      border: 1px solid rgb(195, 118, 30);
+    }
+    50% {
+      width: 30vw;
+      right: 0px;
+      left: 70vw;
+      border: 1px solid rgba(85, 155, 240, 0.545);
+    }
+    75% {
+      width: 100vw;
+      left: 0px;
+    }
+    100% {
+      width: 30vw;
+      left: 0px;
+    }
+  }
+
+  @keyframes high-again-text {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  @keyframes high-again-arrow {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .high-again-text {
+    animation-name: high-again-text;
+    animation-duration: 0.5s;
+  }
+
+  .high-again-arrow {
+    animation-name: high-again-text;
+    animation-duration: 0.5s;
+  }
+
+  @keyframes low-again-text {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(3px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .low-again-text {
+    animation-name: low-again-text;
+    animation-duration: 0.5s;
+  }
+
 
   &__top-left {
     @include display();
@@ -38,6 +128,7 @@
     max-width: 300px;
     border-radius: 5px;
     gap: 20px;
+    // display: none;
   }
 
   &__boxes-left {
@@ -63,7 +154,7 @@
     font-family: sans-serif;
     font-size: 14px;
     font-weight: 600;
-    color: #1caf08;
+    color: #515151;
   }
 
   &__top-right {
@@ -146,12 +237,12 @@
     width: 100%;
   }
   tbody {
-    width:100%;
+    width: 100%;
   }
 
   &__actives-row {
     @include display();
-    justify-content:start;
+    justify-content: start;
     align-items: start;
     width: 100%;
     gap: 10px;
@@ -164,7 +255,7 @@
     color: rgba(255, 255, 255, 0.816);
     font-weight: 600;
     width: 90px;
-    word-break: break-all;   /* Harflarni har qanday joydan pastga tushiradi */
+    word-break: break-all; /* Harflarni har qanday joydan pastga tushiradi */
     white-space: normal;
     text-align: start;
   }
@@ -188,6 +279,15 @@
     &__right-section {
       width: 100%;
       max-width: none;
+    }
+
+    &__actives-des {
+      width: auto;
+      font-size: 14px;
+    }
+
+    &__actives-row {
+      justify-content: space-between;
     }
   }
 }
