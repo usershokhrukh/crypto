@@ -1,0 +1,193 @@
+.real-time {
+  @include display();
+  gap: 10%;
+  justify-content: start;
+  align-items: start;
+
+  &__main {
+    background-color: rgb(17, 17, 17);
+    min-height: 100vh;
+    flex-grow: 1;
+    padding: 10% 5%;
+  }
+
+  &__top-left {
+    @include display();
+    flex-grow: 1;
+    max-width: 700px;
+  }
+
+  &__boxes {
+    @include display();
+    flex-direction: column;
+    background-color: rgb(23, 30, 48);
+    padding: 10px;
+    flex-grow: 1;
+    max-width: 700px;
+    border-radius: 5px;
+    gap: 10px;
+  }
+
+  &__right-section {
+    @include display();
+    flex-direction: column;
+    align-items: start;
+    padding: 10px;
+    flex-grow: 2;
+    background-color: rgb(23, 30, 48);
+    max-width: 300px;
+    border-radius: 5px;
+    gap: 20px;
+  }
+
+  &__boxes-left {
+    @include display();
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__coin-left {
+    @include display();
+    gap: 5px;
+  }
+
+  &__boxes-title {
+    font-size: 15px;
+    color: white;
+    font-family: sans-serif;
+  }
+
+  &__coin-amount {
+    @include display();
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1caf08;
+  }
+
+  &__top-right {
+    @include display();
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    gap: 10px;
+  }
+
+  &__add-title {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: white;
+  }
+
+  &__add-form {
+    @include display();
+    flex-direction: column;
+    width: 100%;
+    gap: 5px;
+  }
+
+  &__add-select {
+    width: 100%;
+    border: 2px solid rgba(62, 60, 60, 0.649);
+    font-size: 14px;
+    font-family: sans-serif;
+    border-radius: 3px;
+    background-color: rgb(9, 16, 40);
+    color: rgb(210, 210, 210);
+    padding: 10px 5px;
+    outline: none;
+  }
+
+  &__add-option {
+    border: none;
+  }
+
+  &__add-input {
+    width: 100%;
+    border: 2px solid rgba(62, 60, 60, 0.649);
+    font-size: 14px;
+    font-family: sans-serif;
+    border-radius: 3px;
+    background-color: rgba(9, 16, 40, 0.226);
+    color: rgb(143, 142, 142);
+    padding: 10px 5px;
+    outline: none;
+  }
+  &__add-button {
+    width: 100%;
+    font-family: sans-serif;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    background-color: rgb(195, 118, 30);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  &__actives {
+    @include display();
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    width: 100%;
+  }
+
+  &__actives-table {
+    @include display();
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+    width: 100%;
+  }
+
+  thead {
+    width: 100%;
+  }
+  tbody {
+    width:100%;
+  }
+
+  &__actives-row {
+    @include display();
+    justify-content:start;
+    align-items: start;
+    width: 100%;
+    gap: 10px;
+  }
+
+  &__actives-des {
+    @include display();
+    justify-content: start;
+    font-family: sans-serif;
+    color: rgba(255, 255, 255, 0.816);
+    font-weight: 600;
+    width: 90px;
+    word-break: break-all;   /* Harflarni har qanday joydan pastga tushiradi */
+    white-space: normal;
+    text-align: start;
+  }
+
+  &__actives-des-title {
+    color: rgba(141, 141, 141, 0.366) !important;
+  }
+}
+
+@media (max-width: 500px) {
+  .real-time {
+    flex-direction: column;
+    gap: 30px;
+
+    &__top-left {
+      max-width: none;
+      flex-grow: 2;
+      width: 100%;
+    }
+
+    &__right-section {
+      width: 100%;
+      max-width: none;
+    }
+  }
+}

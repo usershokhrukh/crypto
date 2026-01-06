@@ -1,0 +1,30 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+}
+
+.green {
+  color: #1caf08 !important;
+}
+
+.red {
+  color: rgb(195, 7, 7) !important;
+}
+
+.up {
+  color: #1caf08 !important;
+  transform: rotate(0deg);
+  transition: all 0.3s ease-in-out;
+}
+
+.down {
+  color: rgb(195, 7, 7) !important;
+  transform: rotate(180deg);
+  transition: all 0.3s ease-in-out;
+}

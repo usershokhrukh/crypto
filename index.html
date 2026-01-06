@@ -1,14 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crypto</title>
-  <link rel="stylesheet" href="./css/style.css">
-</head>
-<body>
-  
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crypto</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <main class="real-time__main">
+      <svg class="real-time__loader" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><circle cx="12" cy="3.5" r="1.5" fill="#ededed" opacity="0"><animateTransform attributeName="transform" calcMode="discrete" dur="2.4s" repeatCount="indefinite" type="rotate" values="0 12 12;90 12 12;180 12 12;270 12 12"/><animate attributeName="opacity" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite" values="1;1;0"/></circle><circle cx="12" cy="3.5" r="1.5" fill="#ededed" opacity="0"><animateTransform attributeName="transform" begin="0.2s" calcMode="discrete" dur="2.4s" repeatCount="indefinite" type="rotate" values="30 12 12;120 12 12;210 12 12;300 12 12"/><animate attributeName="opacity" begin="0.2s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite" values="1;1;0"/></circle><circle cx="12" cy="3.5" r="1.5" fill="#ededed" opacity="0"><animateTransform attributeName="transform" begin="0.4s" calcMode="discrete" dur="2.4s" repeatCount="indefinite" type="rotate" values="60 12 12;150 12 12;240 12 12;330 12 12"/><animate attributeName="opacity" begin="0.4s" dur="0.6s" keyTimes="0;0.5;1" repeatCount="indefinite" values="1;1;0"/></circle></svg>
+      <section class="real-time">
+        <article class="real-time__top-left">
+          <div class="real-time__boxes">
+            <div class="real-time__boxes-left">
+              <div class="real-time__coin-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 512 512"><path fill="#e7b018" d="M256 243.2c141.4 0 256-47.8 256-106.7c0-58.9-114.6-106.7-256-106.7S0 77.6 0 136.5c0 58.9 114.6 106.7 256 106.7zm0 170.6c-97.7 0-184.1-23.5-238.6-59.8C6.3 366 0 378.9 0 392.5c0 58.9 114.6 106.7 256 106.7s256-47.8 256-106.7c0-13.6-6.3-26.5-17.4-38.4c-54.5 36.2-140.9 59.7-238.6 59.7zm0-128c-97.7 0-184.1-23.5-238.6-59.8C6.3 238 0 250.9 0 264.5c0 58.9 114.6 106.7 256 106.7s256-47.8 256-106.7c0-13.6-6.3-26.5-17.4-38.4c-54.5 36.2-140.9 59.7-238.6 59.7z"/></svg>
+                <h2 class="real-time__boxes-title">Bitcoin</h2>
+              </div>
+              <p class="real-time__coin-amount"> <span><svg class="coin-arrow up" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M13 18v-6h5l-6-7l-6 7h5v6z"/></svg></span>$92322</p>
+            </div>
 
-  <script src="index.js"></script>
-</body>
+          </div>
+        </article>
+        <section class="real-time__right-section">
+          <article class="real-time__top-right">
+            <div class="real-time__add-top">
+              <h2 class="real-time__add-title">Add active</h2>
+            </div>
+            <form class="real-time__add-form">
+              <select class="real-time__add-select" name="" id="">
+                <option class="real-time__add-option" value="">domr</option>
+                <option class="real-time__add-option" value="">
+                  doowiefnmr
+                </option>
+              </select>
+              <input class="real-time__add-input" type="number" />
+              <button class="real-time__add-button" type="submit">Buy</button>
+            </form>
+          </article>
+          <article class="real-time__actives">
+            <div class="real-time__actives-top">
+              <h2 class="real-time__add-title">My actives</h2>
+            </div>
+            <table class="real-time__actives-table">
+              <thead>
+                <tr class="real-time__actives-row-title real-time__actives-row">
+                  <td class="real-time__actives-des real-time__actives-des-title">Coins</td>
+                  <td class="real-time__actives-des real-time__actives-des-title">Amount</td>
+                  <td class="real-time__actives-des real-time__actives-des-title">Direction</td>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr class="real-time__actives-row">
+                  <td class="real-time__actives-des">Bitcoin</td>
+                  <td class="real-time__actives-des">2.5</td>
+                  <td>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <path fill="#1caf08" d="M13 18v-6h5l-6-7l-6 7h5v6z" />
+                    </svg>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </section>
+      </section>
+      <section class="backpack">
+        <article class="backpack__balance">
+          <div class="backpack__balance-left">
+            <p class="backpack__balance-title">Backpack balance</p>
+            <h2 class="backpack__amount">$0.00</h2>
+          </div>
+          <p class="backpack__balance-right">online</p>
+        </article>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>
