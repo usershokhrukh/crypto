@@ -263,6 +263,7 @@ elRealAddForm.addEventListener("submit", (e) => {
       showToastAddStatus = false;
     }, 3000);
   }
+  elRealAddForm.reset();
 });
 
 function checkArrowAdd(status, text) {
