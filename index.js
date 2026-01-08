@@ -70,9 +70,7 @@ function getData() {
             elCoinArrow[index].classList.add("down");
             elRealAmount[index].classList.remove("green");
             elCoinArrow[index].classList.remove("up");
-          } else if (
-            elAmount[index].textContent != response.data.bitcoin.usd
-          ) {
+          } else if (elAmount[index].textContent != response.data.bitcoin.usd) {
             dataAmountChange(index, "high");
             elRealAmount[index].classList.remove("red");
             elCoinArrow[index].classList.remove("down");
@@ -106,9 +104,7 @@ function getData() {
             elCoinArrow[index].classList.add("down");
             elRealAmount[index].classList.remove("green");
             elCoinArrow[index].classList.remove("up");
-          } else if (
-            elAmount[index].textContent != response.data.tether.usd
-          ) {
+          } else if (elAmount[index].textContent != response.data.tether.usd) {
             dataAmountChange(index, "high");
             elRealAmount[index].classList.remove("red");
             elCoinArrow[index].classList.remove("down");
@@ -186,15 +182,15 @@ function getData() {
   }
 }
 
-getData();
+// getData();
 
-setInterval(() => {
-  getData();
-}, 15000);
+// setInterval(() => {
+//   getData();
+// }, 15000);
 
 function showToast(color, text) {
   Toastify({
-    text: `${text}`,    
+    text: `${text}`,
     duration: 3000, // 5 soniya
     gravity: "top", // Yuqori qism
     position: "right", // O'ng tomon
@@ -212,3 +208,44 @@ function showToast(color, text) {
     },
   }).showToast();
 }
+
+const elRealAddForm = document.querySelector(".real-time__add-form");
+const elAddSelect = document.querySelector(".real-time__add-select");
+let selectText = "Binancecoin";
+elAddSelect.addEventListener("change", (event) => {
+  selectText = event.target.options[event.target.selectedIndex].text;
+});
+let showToastAddStatus = false;
+elRealAddForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const elAddInputAmount = elRealAddForm["add-input"].value.trim();
+  console.log(elAddInputAmount + " " + selectText);
+
+  if (!showToastAddStatus) {
+    showToastAddStatus = true;
+    if (elAddInputAmount) {
+      const elRealTimeBody = document.querySelector(".real-time-body");
+      elRealTimeBody.innerHTML += `
+        <tr class="real-time__actives-row">
+                  <td class="real-time__actives-des">${selectText}</td>
+                  <td class="real-time__actives-des">${elAddInputAmount}</td>
+                  <td>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                    >
+                      <path fill="#1caf08" d="M13 18v-6h5l-6-7l-6 7h5v6z" />
+                    </svg>
+                  </td>
+                </tr>
+      `;
+    } else {
+      showToast("red", "Please fill amount!");
+    }
+    setTimeout(() => {
+      showToastAddStatus = false;
+    }, 3000);
+  }
+});
