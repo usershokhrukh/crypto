@@ -23,13 +23,13 @@ body {
 
 .up {
   color: #1caf08 !important;
-  transform: rotate(0deg);
+  transform: rotate(0deg) !important;
   transition: all 0.3s ease-in-out;
 }
 
 .down {
   color: rgb(195, 7, 7) !important;
-  transform: rotate(180deg);
+  transform: rotate(180deg) !important;
   transition: all 0.3s ease-in-out;
 }
 

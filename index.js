@@ -42,12 +42,12 @@ function getData() {
     amountChange(1);
     amountChange(2);
     amountChange(3);
-
     function amountChange(index) {
       switch (index) {
         case 0:
           if (elAmount[index].textContent > response.data.binancecoin.usd) {
             dataAmountChange(index, "low");
+            checkArrowAdd("low", "Binancecoin");
             elRealAmount[index].classList.add("red");
             elCoinArrow[index].classList.add("down");
             elRealAmount[index].classList.remove("green");
@@ -56,6 +56,7 @@ function getData() {
             elAmount[index].textContent != response.data.binancecoin.usd
           ) {
             dataAmountChange(index, "high");
+            checkArrowAdd("high", "Binancecoin");
             elRealAmount[index].classList.remove("red");
             elCoinArrow[index].classList.remove("down");
             elRealAmount[index].classList.add("green");
@@ -66,12 +67,14 @@ function getData() {
         case 1:
           if (elAmount[index].textContent > response.data.bitcoin.usd) {
             dataAmountChange(index, "low");
+            checkArrowAdd("low", "Bitcoin");
             elRealAmount[index].classList.add("red");
             elCoinArrow[index].classList.add("down");
             elRealAmount[index].classList.remove("green");
             elCoinArrow[index].classList.remove("up");
           } else if (elAmount[index].textContent != response.data.bitcoin.usd) {
             dataAmountChange(index, "high");
+            checkArrowAdd("high", "Bitcoin");
             elRealAmount[index].classList.remove("red");
             elCoinArrow[index].classList.remove("down");
             elRealAmount[index].classList.add("green");
@@ -82,6 +85,7 @@ function getData() {
         case 2:
           if (elAmount[index].textContent > response.data.ethereum.usd) {
             dataAmountChange(index, "low");
+            checkArrowAdd("low", "Ethereum");
             elRealAmount[index].classList.add("red");
             elCoinArrow[index].classList.add("down");
             elRealAmount[index].classList.remove("green");
@@ -90,6 +94,7 @@ function getData() {
             elAmount[index].textContent != response.data.ethereum.usd
           ) {
             dataAmountChange(index, "high");
+            checkArrowAdd("high", "Ethereum");
             elRealAmount[index].classList.remove("red");
             elCoinArrow[index].classList.remove("down");
             elRealAmount[index].classList.add("green");
@@ -100,12 +105,14 @@ function getData() {
         case 3:
           if (elAmount[index].textContent > response.data.tether.usd) {
             dataAmountChange(index, "low");
+            checkArrowAdd("low", "Tether");
             elRealAmount[index].classList.add("red");
             elCoinArrow[index].classList.add("down");
             elRealAmount[index].classList.remove("green");
             elCoinArrow[index].classList.remove("up");
           } else if (elAmount[index].textContent != response.data.tether.usd) {
             dataAmountChange(index, "high");
+            checkArrowAdd("high", "Tether");
             elRealAmount[index].classList.remove("red");
             elCoinArrow[index].classList.remove("down");
             elRealAmount[index].classList.add("green");
@@ -182,13 +189,19 @@ function getData() {
   }
 }
 
-// getData();
+getData();
 
-// setInterval(() => {
-//   getData();
-// }, 15000);
+setInterval(() => {
+  getData();
+}, 15000);
 
 function showToast(color, text) {
+  let toastBg = "white";
+  if (color == "red") {
+    toastBg = `rgba(190, 22, 22, 0.81)`;
+  } else {
+    toastBg = `rgba(26, 68, 33, 1)`;
+  }
   Toastify({
     text: `${text}`,
     duration: 3000, // 5 soniya
@@ -197,8 +210,8 @@ function showToast(color, text) {
     close: false,
     stopOnFocus: true,
     style: {
-      background: "white",
-      color: "black", // Matn rangini qora qilamiz
+      background: `${toastBg}`,
+      color: "white", // Matn rangini qora qilamiz
       borderRadius: "5px", // Yumaloq burchaklar
       borderLeft: `5px solid ${color}`, // Chap tomonda ko'k rangli chiziq qo'shamiz (progress bar o'rniga)
       // boxShadow: "0 3px 10px rgba(0,0,0,0.1)", // Engil soya
@@ -219,7 +232,6 @@ let showToastAddStatus = false;
 elRealAddForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const elAddInputAmount = elRealAddForm["add-input"].value.trim();
-  console.log(elAddInputAmount + " " + selectText);
 
   if (!showToastAddStatus) {
     showToastAddStatus = true;
@@ -229,14 +241,15 @@ elRealAddForm.addEventListener("submit", (e) => {
         <tr class="real-time__actives-row">
                   <td class="real-time__actives-des">${selectText}</td>
                   <td class="real-time__actives-des">${elAddInputAmount}</td>
-                  <td>
+                  <td class="real-time__actives-des">
                     <svg
+                      class="real-time__add-arrow"
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
                       height="20"
                       viewBox="0 0 24 24"
                     >
-                      <path fill="#1caf08" d="M13 18v-6h5l-6-7l-6 7h5v6z" />
+                      <path fill="currentColor" d="M13 18v-6h5l-6-7l-6 7h5v6z" />
                     </svg>
                   </td>
                 </tr>
@@ -249,3 +262,28 @@ elRealAddForm.addEventListener("submit", (e) => {
     }, 3000);
   }
 });
+
+function checkArrowAdd(status, text) {
+  const elRealAddArrow = document.querySelectorAll(".real-time__add-arrow");
+  const elRealAddDes = document.querySelectorAll(".real-time__actives-des");
+  // console.log(elRealAddDes[3].textContent == `${text}`);
+  // console.log(elRealAddArrow[0]);
+  
+  if (elRealAddArrow[0]) {
+    for (var i = 0; i < elRealAddArrow.length; i++) {
+      if (elRealAddDes[i].textContent == `${text}`) {
+        // console.log("1");
+        
+        if (status == "high") {
+          elRealAddArrow[i].classList.remove("down");
+          elRealAddArrow[i].classList.add("up");
+        } else {
+          elRealAddArrow[i].classList.remove("up");
+          elRealAddArrow[i].classList.add("down");
+        }
+        // console.log(elRealAddArrow[i-3]);
+        
+      }
+    }
+  }
+}

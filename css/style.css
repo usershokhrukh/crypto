@@ -23,13 +23,13 @@ body {
 
 .up {
   color: #1caf08 !important;
-  transform: rotate(0deg);
+  transform: rotate(0deg) !important;
   transition: all 0.3s ease-in-out;
 }
 
 .down {
   color: rgb(195, 7, 7) !important;
-  transform: rotate(180deg);
+  transform: rotate(180deg) !important;
   transition: all 0.3s ease-in-out;
 }
 
@@ -250,10 +250,15 @@ body {
   padding: 5px;
   border: none;
   border-radius: 3px;
-  background-color: rgb(195, 118, 30);
+  background-color: rgb(24, 57, 103);
+  box-shadow: 0px 5px 20px -8px rgb(28, 74, 212);
   color: white;
   font-size: 15px;
   font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+.real-time__add-button:active {
+  box-shadow: 0px 0px 20px -8px rgb(28, 74, 212);
 }
 .real-time__actives {
   display: flex;
@@ -306,6 +311,10 @@ body {
 }
 .real-time__actives-des-title {
   color: rgba(141, 141, 141, 0.366) !important;
+}
+.real-time__add-arrow {
+  color: #515151;
+  transform: rotate(90deg);
 }
 
 @media (max-width: 500px) {

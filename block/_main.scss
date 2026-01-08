@@ -211,10 +211,15 @@
     padding: 5px;
     border: none;
     border-radius: 3px;
-    background-color: rgb(195, 118, 30);
+    background-color: rgb(24, 57, 103);
+    box-shadow: 0px 5px 20px -8px rgb(28, 74, 212);
     color: white;
     font-size: 15px;
     font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    &:active {
+    box-shadow: 0px 0px 20px -8px rgb(28, 74, 212);
+    }
   }
 
   &__actives {
@@ -266,6 +271,11 @@
 
   &__actives-des-title {
     color: rgba(141, 141, 141, 0.366) !important;
+  }
+
+  &__add-arrow {
+    color: #515151;
+    transform: rotate(90deg);
   }
 }
 
