@@ -193,6 +193,7 @@ getData();
 
 setInterval(() => {
   getData();
+  // checkArrowAdd("high", "Binancecoin");
 }, 15000);
 
 function showToast(color, text) {
@@ -232,6 +233,7 @@ let showToastAddStatus = false;
 elRealAddForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const elAddInputAmount = elRealAddForm["add-input"].value.trim();
+  // console.log("1");
 
   if (!showToastAddStatus) {
     showToastAddStatus = true;
@@ -239,7 +241,7 @@ elRealAddForm.addEventListener("submit", (e) => {
       const elRealTimeBody = document.querySelector(".real-time-body");
       elRealTimeBody.innerHTML += `
         <tr class="real-time__actives-row">
-                  <td class="real-time__actives-des">${selectText}</td>
+                  <td class="real-time__actives-des real-time-des">${selectText}</td>
                   <td class="real-time__actives-des">${elAddInputAmount}</td>
                   <td class="real-time__actives-des">
                     <svg
@@ -261,19 +263,21 @@ elRealAddForm.addEventListener("submit", (e) => {
       showToastAddStatus = false;
     }, 3000);
   }
+  elRealAddForm.reset();
 });
 
 function checkArrowAdd(status, text) {
   const elRealAddArrow = document.querySelectorAll(".real-time__add-arrow");
-  const elRealAddDes = document.querySelectorAll(".real-time__actives-des");
+  const elRealAddDes = document.querySelectorAll(".real-time-des");
   // console.log(elRealAddDes[3].textContent == `${text}`);
   // console.log(elRealAddArrow[0]);
-  
+
+  // console.log(elRealAddArrow[0]);
   if (elRealAddArrow[0]) {
     for (var i = 0; i < elRealAddArrow.length; i++) {
+      // console.log(elRealAddDes[i].textContent);
+
       if (elRealAddDes[i].textContent == `${text}`) {
-        // console.log("1");
-        
         if (status == "high") {
           elRealAddArrow[i].classList.remove("down");
           elRealAddArrow[i].classList.add("up");
@@ -282,7 +286,6 @@ function checkArrowAdd(status, text) {
           elRealAddArrow[i].classList.add("down");
         }
         // console.log(elRealAddArrow[i-3]);
-        
       }
     }
   }
